@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://ca5ol5tdqvnre"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_ot1ew"]
-[ext_resource type="Texture2D" path="res://icon.svg" id="1_vjlb6"]
-[ext_resource type="Script" path="res://scripts/ball.gd" id="3_mdwq1"]
-[ext_resource type="Script" path="res://scripts/player_goal.gd" id="4_dbiey"]
+[ext_resource type="Script" uid="uid://do5ore0onoo0e" path="res://scripts/player.gd" id="1_ot1ew"]
+[ext_resource type="Texture2D" uid="uid://bvny40pjtgkw6" path="res://assets/icon.svg" id="3_dqkch"]
+[ext_resource type="Script" uid="uid://bqw3jn84wrbh5" path="res://scripts/ball.gd" id="3_mdwq1"]
+[ext_resource type="Script" uid="uid://5nytyy38u6bw" path="res://scripts/player_goal.gd" id="4_dbiey"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_slx6p"]
 
@@ -30,8 +30,6 @@ distance = 1.00001
 size = Vector2(20, 264.5)
 
 [node name="Node2D" type="Node2D"]
-metadata/Player_goals = 0
-metadata/Opponent_goals = 0
 
 [node name="Player" type="StaticBody2D" parent="."]
 position = Vector2(50, 150)
@@ -46,7 +44,7 @@ debug_color = Color(0.379707, 0.501028, 0.924393, 0.42)
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 position = Vector2(173, 170)
 scale = Vector2(1.34766, 1.38281)
-texture = ExtResource("1_vjlb6")
+texture = ExtResource("3_dqkch")
 
 [node name="Ball" type="RigidBody2D" parent="."]
 gravity_scale = 0.0
@@ -98,3 +96,23 @@ script = ExtResource("4_dbiey")
 position = Vector2(12, 350)
 shape = SubResource("RectangleShape2D_xjx6j")
 debug_color = Color(3.27289e-06, 0.649855, 0.124812, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="Goals/Player_Goal"]
+position = Vector2(12.5, 350.5)
+scale = Vector2(0.179688, 2.07031)
+texture = ExtResource("3_dqkch")
+
+[node name="Enemy_Goal" type="Area2D" parent="Goals"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goals/Enemy_Goal"]
+position = Vector2(1140, 350)
+shape = SubResource("RectangleShape2D_xjx6j")
+debug_color = Color(3.27289e-06, 0.649855, 0.124812, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="Goals/Enemy_Goal"]
+position = Vector2(1140, 350.5)
+scale = Vector2(0.179688, 2.07031)
+texture = ExtResource("3_dqkch")
+
+[connection signal="body_entered" from="Goals/Player_Goal" to="Ball" method="_on_player_goal_body_entered"]
+[connection signal="body_entered" from="Goals/Enemy_Goal" to="Ball" method="_on_enemy_goal_body_entered"]
