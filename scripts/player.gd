@@ -16,5 +16,5 @@ func _process(delta: float) -> void:
 		position.y -= 500 * delta
 
 func _physics_process(delta: float) -> void:
-	move_and_collide(velocity * delta)
+	move_and_collide(velocity * delta) # Keeps the player from leaving the borders.
 	

@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://ca5ol5tdqvnre"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ot1ew"]
-[ext_resource type="Texture2D" uid="uid://bvny40pjtgkw6" path="res://icon.svg" id="1_vjlb6"]
+[ext_resource type="Texture2D" path="res://icon.svg" id="1_vjlb6"]
 [ext_resource type="Script" path="res://scripts/ball.gd" id="3_mdwq1"]
 [ext_resource type="Script" path="res://scripts/player_goal.gd" id="4_dbiey"]
 
