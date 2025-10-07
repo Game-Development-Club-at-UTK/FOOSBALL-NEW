@@ -1,0 +1,100 @@
+[gd_scene load_steps=14 format=3 uid="uid://ca5ol5tdqvnre"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_ot1ew"]
+[ext_resource type="Texture2D" uid="uid://bvny40pjtgkw6" path="res://icon.svg" id="1_vjlb6"]
+[ext_resource type="Script" path="res://scripts/ball.gd" id="3_mdwq1"]
+[ext_resource type="Script" path="res://scripts/player_goal.gd" id="4_dbiey"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_slx6p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ywrt7"]
+size = Vector2(173, 173)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fuou2"]
+size = Vector2(65, 61)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_35pqc"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o0vg0"]
+normal = Vector2(0, 1)
+distance = -8.99835
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hvbyh"]
+distance = 1.00001
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4o3ek"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wdp7u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjx6j"]
+size = Vector2(20, 264.5)
+
+[node name="Node2D" type="Node2D"]
+metadata/Player_goals = 0
+metadata/Opponent_goals = 0
+
+[node name="Player" type="StaticBody2D" parent="."]
+position = Vector2(50, 150)
+physics_material_override = SubResource("PhysicsMaterial_slx6p")
+script = ExtResource("1_ot1ew")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(172.5, 165.5)
+shape = SubResource("RectangleShape2D_ywrt7")
+debug_color = Color(0.379707, 0.501028, 0.924393, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(173, 170)
+scale = Vector2(1.34766, 1.38281)
+texture = ExtResource("1_vjlb6")
+
+[node name="Ball" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+script = ExtResource("3_mdwq1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+position = Vector2(438.5, 200.5)
+shape = SubResource("RectangleShape2D_fuou2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+position = Vector2(437.75, 201)
+scale = Vector2(67.5, 64)
+texture = SubResource("PlaceholderTexture2D_35pqc")
+
+[node name="Borders" type="Node2D" parent="."]
+
+[node name="TOP_BORDER" type="StaticBody2D" parent="Borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/TOP_BORDER"]
+position = Vector2(575, 10)
+shape = SubResource("WorldBoundaryShape2D_o0vg0")
+
+[node name="LEFT_BORDER" type="StaticBody2D" parent="Borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/LEFT_BORDER"]
+position = Vector2(0, 350)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_hvbyh")
+
+[node name="RIGHT_BORDER" type="StaticBody2D" parent="Borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/RIGHT_BORDER"]
+position = Vector2(1150, 350)
+rotation = 4.71239
+shape = SubResource("WorldBoundaryShape2D_4o3ek")
+
+[node name="BOTTOM_BORDER" type="StaticBody2D" parent="Borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/BOTTOM_BORDER"]
+position = Vector2(575, 650)
+shape = SubResource("WorldBoundaryShape2D_wdp7u")
+
+[node name="Goals" type="Node2D" parent="."]
+
+[node name="Player_Goal" type="Area2D" parent="Goals"]
+script = ExtResource("4_dbiey")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goals/Player_Goal"]
+position = Vector2(12, 350)
+shape = SubResource("RectangleShape2D_xjx6j")
+debug_color = Color(3.27289e-06, 0.649855, 0.124812, 0.42)
