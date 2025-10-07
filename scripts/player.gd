@@ -1,5 +1,6 @@
 extends StaticBody2D
 
+var velocity = Vector2(0,0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,3 +14,7 @@ func _process(delta: float) -> void:
 		position.y += 500 * delta
 	if Input.is_action_pressed("w"):
 		position.y -= 500 * delta
+
+func _physics_process(delta: float) -> void:
+	move_and_collide(velocity * delta)
+	
