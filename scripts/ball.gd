@@ -16,7 +16,6 @@ func _on_player_goal_body_entered(body: Node2D) -> void:
 	opponent_goals += 1
 	print(opponent_goals)
 
-
 func _on_enemy_goal_body_entered(body: Node2D) -> void:
 	player_goals += 1
 	print(player_goals)

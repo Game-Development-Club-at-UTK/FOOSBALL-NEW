@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://ca5ol5tdqvnre"]
+[gd_scene load_steps=16 format=3 uid="uid://ca5ol5tdqvnre"]
 
 [ext_resource type="Script" uid="uid://do5ore0onoo0e" path="res://scripts/player.gd" id="1_ot1ew"]
+[ext_resource type="Script" uid="uid://cc41ksltbgyyh" path="res://scripts/game_base.gd" id="1_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://bvny40pjtgkw6" path="res://assets/icon.svg" id="3_dqkch"]
 [ext_resource type="Script" uid="uid://bqw3jn84wrbh5" path="res://scripts/ball.gd" id="3_mdwq1"]
 [ext_resource type="Script" uid="uid://5nytyy38u6bw" path="res://scripts/player_goal.gd" id="4_dbiey"]
+[ext_resource type="Texture2D" uid="uid://cce3tq8f7fob4" path="res://assets/41290.jpg" id="5_qlg0r"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_slx6p"]
 
@@ -29,7 +31,16 @@ distance = 1.00001
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xjx6j"]
 size = Vector2(20, 264.5)
 
-[node name="Node2D" type="Node2D"]
+[node name="Game_Base" type="Node2D"]
+script = ExtResource("1_tuyoq")
+
+[node name="Background" type="Sprite2D" parent="."]
+light_mask = 0
+visibility_layer = 16
+z_index = -1
+position = Vector2(579, 325)
+scale = Vector2(0.181714, 0.143556)
+texture = ExtResource("5_qlg0r")
 
 [node name="Player" type="StaticBody2D" parent="."]
 position = Vector2(50, 150)
@@ -114,5 +125,7 @@ position = Vector2(1140, 350.5)
 scale = Vector2(0.179688, 2.07031)
 texture = ExtResource("3_dqkch")
 
+[connection signal="body_entered" from="Goals/Player_Goal" to="." method="_on_player_goal_body_entered"]
 [connection signal="body_entered" from="Goals/Player_Goal" to="Ball" method="_on_player_goal_body_entered"]
+[connection signal="body_entered" from="Goals/Enemy_Goal" to="." method="_on_enemy_goal_body_entered"]
 [connection signal="body_entered" from="Goals/Enemy_Goal" to="Ball" method="_on_enemy_goal_body_entered"]
