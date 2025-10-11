@@ -5,8 +5,9 @@ var player_scored = false
 
 func start():
 	$Player.position.y = screen_size.y / 4
-	$Ball.position.x = screen_size.x / 4
-	$Ball.position.y = screen_size.y / 4
+	$Opponent.position.y = screen_size.y / 4
+	$Ball.position.x = screen_size.x / 2
+	$Ball.position.y = screen_size.y / 2
 	$Ball.velocity = Vector2(0,0)
 	# Need to add a visual timer or something here so there is a countdown that the user can see.
 	await get_tree().create_timer(3.0).timeout
