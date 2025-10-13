@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ca5ol5tdqvnre"]
+[gd_scene load_steps=19 format=3 uid="uid://ca5ol5tdqvnre"]
 
 [ext_resource type="Script" uid="uid://do5ore0onoo0e" path="res://scripts/player.gd" id="1_ot1ew"]
 [ext_resource type="Script" uid="uid://cc41ksltbgyyh" path="res://scripts/game_base.gd" id="1_tuyoq"]
@@ -31,6 +31,17 @@ distance = 1.00001
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xjx6j"]
 size = Vector2(20, 264.5)
 
+[sub_resource type="SystemFont" id="SystemFont_smehm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ur7pv"]
+font = SubResource("SystemFont_smehm")
+font_size = 100
+font_color = Color(0.9529412, 1, 1, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.73333335)
+
 [node name="Game_Base" type="Node2D"]
 script = ExtResource("1_tuyoq")
 
@@ -44,6 +55,7 @@ texture = ExtResource("5_qlg0r")
 
 [node name="Player" type="StaticBody2D" parent="."]
 position = Vector2(50, 150)
+collision_mask = 18
 physics_material_override = SubResource("PhysicsMaterial_slx6p")
 script = ExtResource("1_ot1ew")
 
@@ -59,6 +71,8 @@ texture = ExtResource("3_dqkch")
 
 [node name="Ball" type="RigidBody2D" parent="."]
 position = Vector2(575, 325)
+collision_layer = 2
+collision_mask = 21
 gravity_scale = 0.0
 script = ExtResource("3_mdwq1")
 
@@ -74,12 +88,16 @@ texture = ExtResource("6_smehm")
 [node name="Borders" type="Node2D" parent="."]
 
 [node name="TOP_BORDER" type="StaticBody2D" parent="Borders"]
+collision_layer = 16
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/TOP_BORDER"]
 position = Vector2(575, 10)
 shape = SubResource("WorldBoundaryShape2D_o0vg0")
 
 [node name="LEFT_BORDER" type="StaticBody2D" parent="Borders"]
+collision_layer = 16
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/LEFT_BORDER"]
 position = Vector2(0, 350)
@@ -87,6 +105,8 @@ rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_hvbyh")
 
 [node name="RIGHT_BORDER" type="StaticBody2D" parent="Borders"]
+collision_layer = 16
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/RIGHT_BORDER"]
 position = Vector2(1150, 350)
@@ -94,6 +114,7 @@ rotation = 4.71239
 shape = SubResource("WorldBoundaryShape2D_4o3ek")
 
 [node name="BOTTOM_BORDER" type="StaticBody2D" parent="Borders"]
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/BOTTOM_BORDER"]
 position = Vector2(575, 650)
@@ -102,6 +123,8 @@ shape = SubResource("WorldBoundaryShape2D_wdp7u")
 [node name="Goals" type="Node2D" parent="."]
 
 [node name="Player_Goal" type="Area2D" parent="Goals"]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("4_dbiey")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goals/Player_Goal"]
@@ -128,6 +151,7 @@ texture = ExtResource("3_dqkch")
 
 [node name="Opponent" type="StaticBody2D" parent="."]
 position = Vector2(1000, 325)
+collision_mask = 18
 physics_material_override = SubResource("PhysicsMaterial_slx6p")
 script = ExtResource("3_fjrip")
 
@@ -138,6 +162,43 @@ debug_color = Color(0.379707, 0.501028, 0.924393, 0.42)
 [node name="Sprite2D" type="Sprite2D" parent="Opponent"]
 scale = Vector2(0.587892, 1.33203)
 texture = ExtResource("3_dqkch")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2.0
+offset_right = 1152.0
+offset_bottom = 651.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 287.0
+offset_top = 58.0
+offset_right = 867.0
+offset_bottom = 246.0
+text = "0 - 0"
+label_settings = SubResource("LabelSettings_ur7pv")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 548.0
+offset_right = 680.0
+offset_bottom = 629.0
+alignment = 1
+
+[node name="Panel" type="Panel" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel2" type="Panel" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel3" type="Panel" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [connection signal="body_entered" from="Goals/Player_Goal" to="." method="_on_player_goal_body_entered"]
 [connection signal="body_entered" from="Goals/Player_Goal" to="Ball" method="_on_player_goal_body_entered"]
