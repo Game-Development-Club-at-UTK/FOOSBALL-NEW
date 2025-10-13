@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ca5ol5tdqvnre"]
+[gd_scene load_steps=19 format=3 uid="uid://ca5ol5tdqvnre"]
 
 [ext_resource type="Script" uid="uid://do5ore0onoo0e" path="res://scripts/player.gd" id="1_ot1ew"]
 [ext_resource type="Script" uid="uid://cc41ksltbgyyh" path="res://scripts/game_base.gd" id="1_tuyoq"]
@@ -6,13 +6,12 @@
 [ext_resource type="Script" uid="uid://coedxes5km45y" path="res://scripts/opponent.gd" id="3_fjrip"]
 [ext_resource type="Script" uid="uid://bqw3jn84wrbh5" path="res://scripts/ball.gd" id="3_mdwq1"]
 [ext_resource type="Script" uid="uid://5nytyy38u6bw" path="res://scripts/player_goal.gd" id="4_dbiey"]
+[ext_resource type="Texture2D" uid="uid://p20mfrg04gh4" path="res://assets/player, blue.png" id="4_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://cce3tq8f7fob4" path="res://assets/41290.jpg" id="5_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://b0dkroh32srju" path="res://assets/pngtree-shadow-perfect-circle-transparent-png-clipart-png-image_7961423.png" id="6_smehm"]
+[ext_resource type="Texture2D" uid="uid://ncqk4ho073p" path="res://assets/player, red.png" id="10_d2wvv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_slx6p"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ywrt7"]
-size = Vector2(74, 171)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ur7pv"]
 radius = 35.4762
@@ -31,6 +30,9 @@ distance = 1.00001
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xjx6j"]
 size = Vector2(20, 264.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ywrt7"]
+size = Vector2(74, 171)
+
 [node name="Game_Base" type="Node2D"]
 script = ExtResource("1_tuyoq")
 
@@ -47,15 +49,14 @@ position = Vector2(50, 150)
 physics_material_override = SubResource("PhysicsMaterial_slx6p")
 script = ExtResource("1_ot1ew")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(124, 166.5)
-shape = SubResource("RectangleShape2D_ywrt7")
-debug_color = Color(0.379707, 0.501028, 0.924393, 0.42)
-
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(124.375, 166.75)
-scale = Vector2(0.587892, 1.33203)
-texture = ExtResource("3_dqkch")
+position = Vector2(117.00001, 171.99998)
+scale = Vector2(5.0783696, 5.9462886)
+texture = ExtResource("4_y4r1p")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
+position = Vector2(84, 137)
+polygon = PackedVector2Array(0, 0, 35, -10, 70, 0, 70, 70, 35, 80)
 
 [node name="Ball" type="RigidBody2D" parent="."]
 position = Vector2(575, 325)
@@ -136,8 +137,9 @@ shape = SubResource("RectangleShape2D_ywrt7")
 debug_color = Color(0.379707, 0.501028, 0.924393, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="Opponent"]
-scale = Vector2(0.587892, 1.33203)
-texture = ExtResource("3_dqkch")
+position = Vector2(2.0000076, -2.0000076)
+scale = Vector2(4.5751963, 5.5722647)
+texture = ExtResource("10_d2wvv")
 
 [connection signal="body_entered" from="Goals/Player_Goal" to="." method="_on_player_goal_body_entered"]
 [connection signal="body_entered" from="Goals/Player_Goal" to="Ball" method="_on_player_goal_body_entered"]
