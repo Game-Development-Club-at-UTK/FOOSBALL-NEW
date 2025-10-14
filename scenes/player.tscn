@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ca5ol5tdqvnre"]
+[gd_scene load_steps=20 format=3 uid="uid://ca5ol5tdqvnre"]
 
 [ext_resource type="Script" uid="uid://do5ore0onoo0e" path="res://scripts/player.gd" id="1_ot1ew"]
 [ext_resource type="Script" uid="uid://cc41ksltbgyyh" path="res://scripts/game_base.gd" id="1_tuyoq"]
@@ -33,6 +33,13 @@ size = Vector2(20, 264.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ywrt7"]
 size = Vector2(74, 171)
 
+[sub_resource type="LabelSettings" id="LabelSettings_y4r1p"]
+font_size = 100
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.6392157)
+
 [node name="Game_Base" type="Node2D"]
 script = ExtResource("1_tuyoq")
 
@@ -46,6 +53,7 @@ texture = ExtResource("5_qlg0r")
 
 [node name="Player" type="StaticBody2D" parent="."]
 position = Vector2(50, 150)
+collision_mask = 18
 physics_material_override = SubResource("PhysicsMaterial_slx6p")
 script = ExtResource("1_ot1ew")
 
@@ -60,6 +68,8 @@ polygon = PackedVector2Array(0, 0, 35, -10, 70, 0, 70, 70, 35, 80)
 
 [node name="Ball" type="RigidBody2D" parent="."]
 position = Vector2(575, 325)
+collision_layer = 2
+collision_mask = 21
 gravity_scale = 0.0
 script = ExtResource("3_mdwq1")
 
@@ -75,12 +85,16 @@ texture = ExtResource("6_smehm")
 [node name="Borders" type="Node2D" parent="."]
 
 [node name="TOP_BORDER" type="StaticBody2D" parent="Borders"]
+collision_layer = 16
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/TOP_BORDER"]
 position = Vector2(575, 10)
 shape = SubResource("WorldBoundaryShape2D_o0vg0")
 
 [node name="LEFT_BORDER" type="StaticBody2D" parent="Borders"]
+collision_layer = 16
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/LEFT_BORDER"]
 position = Vector2(0, 350)
@@ -88,6 +102,8 @@ rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_hvbyh")
 
 [node name="RIGHT_BORDER" type="StaticBody2D" parent="Borders"]
+collision_layer = 16
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/RIGHT_BORDER"]
 position = Vector2(1150, 350)
@@ -95,6 +111,8 @@ rotation = 4.71239
 shape = SubResource("WorldBoundaryShape2D_4o3ek")
 
 [node name="BOTTOM_BORDER" type="StaticBody2D" parent="Borders"]
+collision_layer = 16
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/BOTTOM_BORDER"]
 position = Vector2(575, 650)
@@ -103,6 +121,8 @@ shape = SubResource("WorldBoundaryShape2D_wdp7u")
 [node name="Goals" type="Node2D" parent="."]
 
 [node name="Player_Goal" type="Area2D" parent="Goals"]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("4_dbiey")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goals/Player_Goal"]
@@ -116,6 +136,8 @@ scale = Vector2(0.179688, 2.07031)
 texture = ExtResource("3_dqkch")
 
 [node name="Enemy_Goal" type="Area2D" parent="Goals"]
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goals/Enemy_Goal"]
 position = Vector2(1140, 350)
@@ -129,6 +151,7 @@ texture = ExtResource("3_dqkch")
 
 [node name="Opponent" type="StaticBody2D" parent="."]
 position = Vector2(1000, 325)
+collision_mask = 18
 physics_material_override = SubResource("PhysicsMaterial_slx6p")
 script = ExtResource("3_fjrip")
 
@@ -140,6 +163,21 @@ debug_color = Color(0.379707, 0.501028, 0.924393, 0.42)
 position = Vector2(2.0000076, -2.0000076)
 scale = Vector2(4.5751963, 5.5722647)
 texture = ExtResource("10_d2wvv")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1153.0
+offset_bottom = 649.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 478.0
+offset_top = 58.0
+offset_right = 679.0
+offset_bottom = 195.0
+text = "0 - 0"
+label_settings = SubResource("LabelSettings_y4r1p")
 
 [connection signal="body_entered" from="Goals/Player_Goal" to="." method="_on_player_goal_body_entered"]
 [connection signal="body_entered" from="Goals/Player_Goal" to="Ball" method="_on_player_goal_body_entered"]
