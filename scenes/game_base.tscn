@@ -1,15 +1,15 @@
-[gd_scene load_steps=36 format=3 uid="uid://ca5ol5tdqvnre"]
+[gd_scene load_steps=36 format=3 uid="uid://ckyfjschfye0n"]
 
-[ext_resource type="Script" uid="uid://do5ore0onoo0e" path="res://scripts/player.gd" id="1_ot1ew"]
-[ext_resource type="Script" uid="uid://cc41ksltbgyyh" path="res://scripts/game_base.gd" id="1_tuyoq"]
-[ext_resource type="Texture2D" uid="uid://bvny40pjtgkw6" path="res://assets/icon.svg" id="3_dqkch"]
-[ext_resource type="Script" uid="uid://coedxes5km45y" path="res://scripts/opponent.gd" id="3_fjrip"]
-[ext_resource type="Script" uid="uid://bqw3jn84wrbh5" path="res://scripts/ball.gd" id="3_mdwq1"]
-[ext_resource type="Script" uid="uid://5nytyy38u6bw" path="res://scripts/player_goal.gd" id="4_dbiey"]
-[ext_resource type="Texture2D" uid="uid://p20mfrg04gh4" path="res://assets/player, blue.png" id="4_y4r1p"]
-[ext_resource type="Texture2D" uid="uid://cce3tq8f7fob4" path="res://assets/41290.jpg" id="5_qlg0r"]
-[ext_resource type="Texture2D" uid="uid://b5y030jmodp8a" path="res://assets/soccer ball rolling green.png" id="6_y4r1p"]
-[ext_resource type="Texture2D" uid="uid://ncqk4ho073p" path="res://assets/player, red.png" id="10_d2wvv"]
+[ext_resource type="Script" uid="uid://cc41ksltbgyyh" path="res://scripts/game_base.gd" id="1_whxmx"]
+[ext_resource type="Texture2D" uid="uid://cce3tq8f7fob4" path="res://assets/41290.jpg" id="2_gprq4"]
+[ext_resource type="Script" uid="uid://do5ore0onoo0e" path="res://scripts/player.gd" id="3_30vuv"]
+[ext_resource type="Texture2D" uid="uid://p20mfrg04gh4" path="res://assets/player, blue.png" id="4_5leqt"]
+[ext_resource type="Script" uid="uid://bqw3jn84wrbh5" path="res://scripts/ball.gd" id="5_hgrxd"]
+[ext_resource type="Texture2D" uid="uid://b5y030jmodp8a" path="res://assets/soccer ball rolling green.png" id="6_yh0t1"]
+[ext_resource type="Script" uid="uid://5nytyy38u6bw" path="res://scripts/player_goal.gd" id="7_mheww"]
+[ext_resource type="Texture2D" uid="uid://bvny40pjtgkw6" path="res://assets/icon.svg" id="8_08lcp"]
+[ext_resource type="Script" uid="uid://coedxes5km45y" path="res://scripts/opponent.gd" id="9_t26vq"]
+[ext_resource type="Texture2D" uid="uid://ncqk4ho073p" path="res://assets/player, red.png" id="10_s1mgi"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_slx6p"]
 
@@ -17,67 +17,67 @@
 radius = 35.4762
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
-atlas = ExtResource("6_y4r1p")
+atlas = ExtResource("6_yh0t1")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
-atlas = ExtResource("6_y4r1p")
+atlas = ExtResource("6_yh0t1")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
-atlas = ExtResource("6_y4r1p")
+atlas = ExtResource("6_yh0t1")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
-atlas = ExtResource("6_y4r1p")
+atlas = ExtResource("6_yh0t1")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
-atlas = ExtResource("6_y4r1p")
+atlas = ExtResource("6_yh0t1")
 region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a8ls1"]
-atlas = ExtResource("6_y4r1p")
+atlas = ExtResource("6_yh0t1")
 region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qfm1y"]
-atlas = ExtResource("6_y4r1p")
+atlas = ExtResource("6_yh0t1")
 region = Rect2(64, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fulsm"]
-atlas = ExtResource("6_y4r1p")
+atlas = ExtResource("6_yh0t1")
 region = Rect2(96, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
-atlas = ExtResource("6_y4r1p")
+atlas = ExtResource("6_yh0t1")
 region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_60mlk"]
-atlas = ExtResource("6_y4r1p")
+atlas = ExtResource("6_yh0t1")
 region = Rect2(32, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i4ail"]
-atlas = ExtResource("6_y4r1p")
+atlas = ExtResource("6_yh0t1")
 region = Rect2(64, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a38lo"]
-atlas = ExtResource("6_y4r1p")
+atlas = ExtResource("6_yh0t1")
 region = Rect2(96, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ni07"]
-atlas = ExtResource("6_y4r1p")
+atlas = ExtResource("6_yh0t1")
 region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l71n6"]
-atlas = ExtResource("6_y4r1p")
+atlas = ExtResource("6_yh0t1")
 region = Rect2(32, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ke2ow"]
-atlas = ExtResource("6_y4r1p")
+atlas = ExtResource("6_yh0t1")
 region = Rect2(64, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ujl30"]
-atlas = ExtResource("6_y4r1p")
+atlas = ExtResource("6_yh0t1")
 region = Rect2(96, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_31cv2"]
@@ -158,7 +158,7 @@ shadow_size = 10
 shadow_color = Color(0, 0, 0, 0.6392157)
 
 [node name="Game_Base" type="Node2D"]
-script = ExtResource("1_tuyoq")
+script = ExtResource("1_whxmx")
 
 [node name="Background" type="Sprite2D" parent="."]
 light_mask = 0
@@ -166,18 +166,18 @@ visibility_layer = 16
 z_index = -1
 position = Vector2(579, 325)
 scale = Vector2(0.181714, 0.143556)
-texture = ExtResource("5_qlg0r")
+texture = ExtResource("2_gprq4")
 
 [node name="Player" type="StaticBody2D" parent="."]
 position = Vector2(50, 150)
 collision_mask = 18
 physics_material_override = SubResource("PhysicsMaterial_slx6p")
-script = ExtResource("1_ot1ew")
+script = ExtResource("3_30vuv")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 position = Vector2(117.00001, 171.99998)
 scale = Vector2(5.0783696, 5.9462886)
-texture = ExtResource("4_y4r1p")
+texture = ExtResource("4_5leqt")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
 position = Vector2(84, 137)
@@ -188,7 +188,7 @@ position = Vector2(575, 325)
 collision_layer = 2
 collision_mask = 21
 gravity_scale = 0.0
-script = ExtResource("3_mdwq1")
+script = ExtResource("5_hgrxd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
 position = Vector2(0.75, 1)
@@ -198,7 +198,8 @@ shape = SubResource("CircleShape2D_ur7pv")
 position = Vector2(2.5000134, 3.4999962)
 scale = Vector2(2.5937507, 2.5937498)
 sprite_frames = SubResource("SpriteFrames_31cv2")
-frame_progress = 0.9033431
+autoplay = "default"
+frame_progress = 0.7258823
 
 [node name="Borders" type="Node2D" parent="."]
 
@@ -241,7 +242,7 @@ shape = SubResource("WorldBoundaryShape2D_wdp7u")
 [node name="Player_Goal" type="Area2D" parent="Goals"]
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("4_dbiey")
+script = ExtResource("7_mheww")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goals/Player_Goal"]
 position = Vector2(12, 350)
@@ -251,7 +252,7 @@ debug_color = Color(3.27289e-06, 0.649855, 0.124812, 0.42)
 [node name="Sprite2D" type="Sprite2D" parent="Goals/Player_Goal"]
 position = Vector2(12.5, 350.5)
 scale = Vector2(0.179688, 2.07031)
-texture = ExtResource("3_dqkch")
+texture = ExtResource("8_08lcp")
 
 [node name="Enemy_Goal" type="Area2D" parent="Goals"]
 collision_layer = 4
@@ -265,18 +266,18 @@ debug_color = Color(3.27289e-06, 0.649855, 0.124812, 0.42)
 [node name="Sprite2D" type="Sprite2D" parent="Goals/Enemy_Goal"]
 position = Vector2(1140, 350.5)
 scale = Vector2(0.179688, 2.07031)
-texture = ExtResource("3_dqkch")
+texture = ExtResource("8_08lcp")
 
 [node name="Opponent" type="StaticBody2D" parent="."]
 position = Vector2(1000, 325)
 collision_mask = 18
 physics_material_override = SubResource("PhysicsMaterial_slx6p")
-script = ExtResource("3_fjrip")
+script = ExtResource("9_t26vq")
 
 [node name="Sprite2D" type="Sprite2D" parent="Opponent"]
 position = Vector2(2.0000076, -2.0000076)
 scale = Vector2(4.5751963, 5.5722647)
-texture = ExtResource("10_d2wvv")
+texture = ExtResource("10_s1mgi")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Opponent"]
 position = Vector2(-866, -38)
