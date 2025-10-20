@@ -1,7 +1,6 @@
-[gd_scene load_steps=36 format=3 uid="uid://ckyfjschfye0n"]
+[gd_scene load_steps=35 format=3 uid="uid://ckyfjschfye0n"]
 
 [ext_resource type="Script" uid="uid://cc41ksltbgyyh" path="res://scripts/game_base.gd" id="1_whxmx"]
-[ext_resource type="Texture2D" uid="uid://cce3tq8f7fob4" path="res://assets/41290.jpg" id="2_gprq4"]
 [ext_resource type="Script" uid="uid://do5ore0onoo0e" path="res://scripts/player.gd" id="3_30vuv"]
 [ext_resource type="Texture2D" uid="uid://p20mfrg04gh4" path="res://assets/player, blue.png" id="4_5leqt"]
 [ext_resource type="Script" uid="uid://bqw3jn84wrbh5" path="res://scripts/ball.gd" id="5_hgrxd"]
@@ -160,14 +159,6 @@ shadow_color = Color(0, 0, 0, 0.6392157)
 [node name="Game_Base" type="Node2D"]
 script = ExtResource("1_whxmx")
 
-[node name="Background" type="Sprite2D" parent="."]
-light_mask = 0
-visibility_layer = 16
-z_index = -1
-position = Vector2(579, 325)
-scale = Vector2(0.181714, 0.143556)
-texture = ExtResource("2_gprq4")
-
 [node name="Player" type="StaticBody2D" parent="."]
 position = Vector2(50, 150)
 collision_mask = 18
@@ -292,9 +283,9 @@ offset_bottom = 649.0
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 478.0
-offset_top = 58.0
-offset_right = 679.0
-offset_bottom = 195.0
+offset_top = -80.0
+offset_right = 676.0
+offset_bottom = 57.0
 text = "0 - 0"
 label_settings = SubResource("LabelSettings_y4r1p")
 
