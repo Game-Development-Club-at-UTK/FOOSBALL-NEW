@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://do5ore0onoo0e" path="res://scripts/player.gd" id="1_ot1ew"]
 [ext_resource type="Script" uid="uid://cc41ksltbgyyh" path="res://scripts/game_base.gd" id="1_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://c35x7mt758vab" path="res://assets/soccer field.png" id="2_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://bvny40pjtgkw6" path="res://assets/icon.svg" id="3_dqkch"]
 [ext_resource type="Script" uid="uid://coedxes5km45y" path="res://scripts/opponent.gd" id="3_fjrip"]
 [ext_resource type="Script" uid="uid://bqw3jn84wrbh5" path="res://scripts/ball.gd" id="3_mdwq1"]
 [ext_resource type="Script" uid="uid://5nytyy38u6bw" path="res://scripts/player_goal.gd" id="4_dbiey"]
 [ext_resource type="Texture2D" uid="uid://p20mfrg04gh4" path="res://assets/player, blue.png" id="4_y4r1p"]
-[ext_resource type="Texture2D" uid="uid://cce3tq8f7fob4" path="res://assets/41290.jpg" id="5_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://b5y030jmodp8a" path="res://assets/soccer ball rolling green.png" id="6_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://ncqk4ho073p" path="res://assets/player, red.png" id="10_d2wvv"]
 
@@ -164,9 +164,9 @@ script = ExtResource("1_tuyoq")
 light_mask = 0
 visibility_layer = 16
 z_index = -1
-position = Vector2(579, 325)
-scale = Vector2(0.181714, 0.143556)
-texture = ExtResource("5_qlg0r")
+position = Vector2(581, 360.50006)
+scale = Vector2(2.3492649, 2.7072368)
+texture = ExtResource("2_y4r1p")
 
 [node name="Player" type="StaticBody2D" parent="."]
 position = Vector2(50, 150)
