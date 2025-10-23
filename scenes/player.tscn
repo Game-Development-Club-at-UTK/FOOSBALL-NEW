@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://ca5ol5tdqvnre"]
+[gd_scene load_steps=37 format=3 uid="uid://ca5ol5tdqvnre"]
 
 [ext_resource type="Script" uid="uid://do5ore0onoo0e" path="res://scripts/player.gd" id="1_ot1ew"]
 [ext_resource type="Script" uid="uid://cc41ksltbgyyh" path="res://scripts/game_base.gd" id="1_tuyoq"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://p20mfrg04gh4" path="res://assets/player, blue.png" id="4_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://b5y030jmodp8a" path="res://assets/soccer ball rolling green.png" id="6_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://ncqk4ho073p" path="res://assets/player, red.png" id="10_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://b4o5usym7dypc" path="res://assets/fosball bar from piskel.png" id="11_d2wvv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_slx6p"]
 
@@ -158,6 +159,7 @@ shadow_size = 10
 shadow_color = Color(0, 0, 0, 0.6392157)
 
 [node name="Game_Base" type="Node2D"]
+position = Vector2(59, 51)
 script = ExtResource("1_tuyoq")
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -287,15 +289,57 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1153.0
 offset_bottom = 649.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 478.0
-offset_top = 58.0
-offset_right = 679.0
-offset_bottom = 195.0
+offset_left = 486.0
+offset_top = -83.0
+offset_right = 687.0
+offset_bottom = 54.0
 text = "0 - 0"
 label_settings = SubResource("LabelSettings_y4r1p")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.010000001
+anchor_top = -0.091000006
+anchor_right = -0.010000001
+anchor_bottom = -0.091000006
+offset_left = 194.53
+offset_top = 761.059
+offset_right = 535.53
+offset_bottom = 842.059
+texture = ExtResource("4_y4r1p")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.010000001
+anchor_top = -0.091000006
+anchor_right = -0.010000001
+anchor_bottom = -0.091000006
+offset_left = 653.53
+offset_top = 752.059
+offset_right = 994.53
+offset_bottom = 833.059
+texture = ExtResource("4_y4r1p")
+metadata/_edit_use_anchors_ = true
+
+[node name="bar sprite player" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(166.50002, 360)
+scale = Vector2(6.21875, 26.187502)
+texture = ExtResource("11_d2wvv")
+
+[node name="bar sprite opponent" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1002.0001, 354)
+scale = Vector2(6.21875, 26.187502)
+texture = ExtResource("11_d2wvv")
 
 [connection signal="body_entered" from="Goals/Player_Goal" to="." method="_on_player_goal_body_entered"]
 [connection signal="body_entered" from="Goals/Player_Goal" to="Ball" method="_on_player_goal_body_entered"]
