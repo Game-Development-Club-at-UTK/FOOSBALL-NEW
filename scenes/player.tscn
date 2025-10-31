@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://ca5ol5tdqvnre"]
+[gd_scene load_steps=39 format=3 uid="uid://ca5ol5tdqvnre"]
 
 [ext_resource type="Script" uid="uid://do5ore0onoo0e" path="res://scripts/player.gd" id="1_ot1ew"]
 [ext_resource type="Script" uid="uid://cc41ksltbgyyh" path="res://scripts/game_base.gd" id="1_tuyoq"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://p20mfrg04gh4" path="res://assets/player, blue.png" id="4_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://b5y030jmodp8a" path="res://assets/soccer ball rolling green.png" id="6_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://ncqk4ho073p" path="res://assets/player, red.png" id="10_d2wvv"]
+[ext_resource type="Script" uid="uid://dmmu6ip5rtnh5" path="res://scripts/label_2.gd" id="11_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://b4o5usym7dypc" path="res://assets/fosball bar from piskel.png" id="11_d2wvv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_slx6p"]
@@ -158,6 +159,9 @@ outline_color = Color(0, 0, 0, 1)
 shadow_size = 10
 shadow_color = Color(0, 0, 0, 0.6392157)
 
+[sub_resource type="LabelSettings" id="LabelSettings_jej6c"]
+font_size = 50
+
 [node name="Game_Base" type="Node2D"]
 position = Vector2(59, 51)
 script = ExtResource("1_tuyoq")
@@ -175,6 +179,7 @@ position = Vector2(50, 150)
 collision_mask = 18
 physics_material_override = SubResource("PhysicsMaterial_slx6p")
 script = ExtResource("1_ot1ew")
+metadata/timer_resetter = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 position = Vector2(117.00001, 171.99998)
@@ -274,6 +279,7 @@ position = Vector2(1000, 325)
 collision_mask = 18
 physics_material_override = SubResource("PhysicsMaterial_slx6p")
 script = ExtResource("3_fjrip")
+metadata/Timer_Resetter = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Opponent"]
 position = Vector2(2.0000076, -2.0000076)
@@ -329,6 +335,16 @@ offset_bottom = 833.059
 texture = ExtResource("4_y4r1p")
 metadata/_edit_use_anchors_ = true
 
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 690.0
+offset_top = 483.0
+offset_right = 1129.0
+offset_bottom = 644.0
+text = "Bruh"
+label_settings = SubResource("LabelSettings_jej6c")
+script = ExtResource("11_3v2ag")
+
 [node name="bar sprite player" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(166.50002, 360)
@@ -341,7 +357,11 @@ position = Vector2(1002.0001, 354)
 scale = Vector2(6.21875, 26.187502)
 texture = ExtResource("11_d2wvv")
 
+[node name="since_last_touch" type="Timer" parent="."]
+wait_time = 10.0
+
 [connection signal="body_entered" from="Goals/Player_Goal" to="." method="_on_player_goal_body_entered"]
 [connection signal="body_entered" from="Goals/Player_Goal" to="Ball" method="_on_player_goal_body_entered"]
 [connection signal="body_entered" from="Goals/Enemy_Goal" to="." method="_on_enemy_goal_body_entered"]
 [connection signal="body_entered" from="Goals/Enemy_Goal" to="Ball" method="_on_enemy_goal_body_entered"]
+[connection signal="timeout" from="since_last_touch" to="." method="_on_since_last_touch_timeout"]
