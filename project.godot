@@ -15,11 +15,6 @@ run/main_scene="res://scenes/player.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
-[display]
-
-window/size/viewport_width=2204
-window/size/viewport_height=1367
-
 [input]
 
 w={
