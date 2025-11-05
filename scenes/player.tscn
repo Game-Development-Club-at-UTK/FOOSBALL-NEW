@@ -13,10 +13,12 @@
 [ext_resource type="Script" uid="uid://dmmu6ip5rtnh5" path="res://scripts/label_2.gd" id="11_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://b4o5usym7dypc" path="res://assets/fosball bar from piskel.png" id="11_d2wvv"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_slx6p"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3v2ag"]
+friction = 0.0
+rough = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ur7pv"]
-radius = 35.4762
+radius = 40.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
 atlas = ExtResource("6_y4r1p")
@@ -163,49 +165,45 @@ shadow_color = Color(0, 0, 0, 0.6392157)
 font_size = 50
 
 [node name="Game_Base" type="Node2D"]
-position = Vector2(59, 51)
 script = ExtResource("1_tuyoq")
+
+[node name="Ball" type="RigidBody2D" parent="."]
+position = Vector2(608, 376)
+collision_layer = 2
+collision_mask = 21
+physics_material_override = SubResource("PhysicsMaterial_3v2ag")
+gravity_scale = 0.0
+script = ExtResource("3_mdwq1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("CircleShape2D_ur7pv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ball"]
+position = Vector2(2.5, 3.5)
+scale = Vector2(2.5937507, 2.5937498)
+sprite_frames = SubResource("SpriteFrames_31cv2")
 
 [node name="Background" type="Sprite2D" parent="."]
 light_mask = 0
 visibility_layer = 16
 z_index = -1
-position = Vector2(581, 360.50006)
-scale = Vector2(2.3492649, 2.7072368)
+position = Vector2(608, 380)
+scale = Vector2(2.235294, 2.5)
 texture = ExtResource("2_y4r1p")
 
-[node name="Player" type="StaticBody2D" parent="."]
-position = Vector2(50, 150)
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(168, 376)
 collision_mask = 18
-physics_material_override = SubResource("PhysicsMaterial_slx6p")
 script = ExtResource("1_ot1ew")
 metadata/timer_resetter = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(117.00001, 171.99998)
-scale = Vector2(5.0783696, 5.9462886)
+scale = Vector2(4, 4)
 texture = ExtResource("4_y4r1p")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
-position = Vector2(84, 137)
+position = Vector2(-32, -32)
 polygon = PackedVector2Array(-1, -5, 34, -15, 69, -5, 69, 65, 34, 75, -1, 65)
-
-[node name="Ball" type="RigidBody2D" parent="."]
-position = Vector2(575, 325)
-collision_layer = 2
-collision_mask = 21
-gravity_scale = 0.0
-script = ExtResource("3_mdwq1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
-position = Vector2(0.75, 1)
-shape = SubResource("CircleShape2D_ur7pv")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ball"]
-position = Vector2(2.5000134, 3.4999962)
-scale = Vector2(2.5937507, 2.5937498)
-sprite_frames = SubResource("SpriteFrames_31cv2")
-frame_progress = 0.9033431
 
 [node name="Borders" type="Node2D" parent="."]
 
@@ -214,7 +212,6 @@ collision_layer = 16
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/TOP_BORDER"]
-position = Vector2(575, 10)
 shape = SubResource("WorldBoundaryShape2D_o0vg0")
 
 [node name="LEFT_BORDER" type="StaticBody2D" parent="Borders"]
@@ -222,7 +219,6 @@ collision_layer = 16
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/LEFT_BORDER"]
-position = Vector2(0, 350)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_hvbyh")
 
@@ -231,7 +227,6 @@ collision_layer = 16
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/RIGHT_BORDER"]
-position = Vector2(1150, 350)
 rotation = 4.71239
 shape = SubResource("WorldBoundaryShape2D_4o3ek")
 
@@ -240,54 +235,49 @@ collision_layer = 16
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/BOTTOM_BORDER"]
-position = Vector2(575, 650)
 shape = SubResource("WorldBoundaryShape2D_wdp7u")
 
 [node name="Goals" type="Node2D" parent="."]
 
 [node name="Player_Goal" type="Area2D" parent="Goals"]
+position = Vector2(24, 352)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("4_dbiey")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goals/Player_Goal"]
-position = Vector2(12, 350)
 shape = SubResource("RectangleShape2D_xjx6j")
 debug_color = Color(3.27289e-06, 0.649855, 0.124812, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="Goals/Player_Goal"]
-position = Vector2(12.5, 350.5)
 scale = Vector2(0.179688, 2.07031)
 texture = ExtResource("3_dqkch")
 
 [node name="Enemy_Goal" type="Area2D" parent="Goals"]
+position = Vector2(1192, 360)
 collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goals/Enemy_Goal"]
-position = Vector2(1140, 350)
 shape = SubResource("RectangleShape2D_xjx6j")
 debug_color = Color(3.27289e-06, 0.649855, 0.124812, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="Goals/Enemy_Goal"]
-position = Vector2(1140, 350.5)
 scale = Vector2(0.179688, 2.07031)
 texture = ExtResource("3_dqkch")
 
-[node name="Opponent" type="StaticBody2D" parent="."]
-position = Vector2(1000, 325)
+[node name="Opponent" type="CharacterBody2D" parent="."]
+position = Vector2(1000, 320)
 collision_mask = 18
-physics_material_override = SubResource("PhysicsMaterial_slx6p")
 script = ExtResource("3_fjrip")
 metadata/Timer_Resetter = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Opponent"]
-position = Vector2(2.0000076, -2.0000076)
-scale = Vector2(4.5751963, 5.5722647)
+scale = Vector2(4, 4)
 texture = ExtResource("10_d2wvv")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Opponent"]
-position = Vector2(-866, -38)
+position = Vector2(-872, -32)
 polygon = PackedVector2Array(833, -3, 868, -13, 903, -3, 903, 67, 868, 77, 833, 67)
 
 [node name="Control" type="Control" parent="."]
@@ -299,10 +289,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 486.0
-offset_top = -83.0
-offset_right = 687.0
-offset_bottom = 54.0
+offset_right = 198.0
+offset_bottom = 137.0
 text = "0 - 0"
 label_settings = SubResource("LabelSettings_y4r1p")
 metadata/_edit_use_anchors_ = true
@@ -337,11 +325,11 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 690.0
-offset_top = 483.0
-offset_right = 1129.0
-offset_bottom = 644.0
-text = "Bruh"
+offset_left = 552.0
+offset_top = 696.0
+offset_right = 651.0
+offset_bottom = 765.0
+text = "0.0"
 label_settings = SubResource("LabelSettings_jej6c")
 script = ExtResource("11_3v2ag")
 
@@ -361,7 +349,5 @@ texture = ExtResource("11_d2wvv")
 wait_time = 10.0
 
 [connection signal="body_entered" from="Goals/Player_Goal" to="." method="_on_player_goal_body_entered"]
-[connection signal="body_entered" from="Goals/Player_Goal" to="Ball" method="_on_player_goal_body_entered"]
 [connection signal="body_entered" from="Goals/Enemy_Goal" to="." method="_on_enemy_goal_body_entered"]
-[connection signal="body_entered" from="Goals/Enemy_Goal" to="Ball" method="_on_enemy_goal_body_entered"]
 [connection signal="timeout" from="since_last_touch" to="." method="_on_since_last_touch_timeout"]
