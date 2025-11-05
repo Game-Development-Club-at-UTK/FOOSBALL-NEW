@@ -39,7 +39,7 @@ func start():
 	$Opponent.position.y = screen_size.y / 2
 	$Ball.position.x = screen_size.x / 2
 	$Ball.position.y = screen_size.y / 2
-	$Ball.velocity = Vector2(0,0)
+	$Ball.linear_velocity = Vector2(0,0)
 	$Goals/Player_Goal.position = Vector2(16, screen_size.y / 2)
 	$Goals/Enemy_Goal.position = Vector2(screen_size.x - 16, screen_size.y / 2)
 	$"bar sprite player".position.x = screen_size.x / 8
@@ -58,9 +58,9 @@ func start():
 	timer.stop()
 	await get_tree().create_timer(3.0).timeout
 	if player_scored:
-		$Ball.velocity = Vector2(-500, -500)
+		$Ball.linear_velocity = Vector2(-500, -500)
 	else:
-		$Ball.velocity = Vector2(500, -500)
+		$Ball.linear_velocity = Vector2(500, -500)
 		
 	timer.start()
 
