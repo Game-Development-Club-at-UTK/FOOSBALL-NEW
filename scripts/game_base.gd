@@ -21,6 +21,10 @@ var timer
 # - locked world borders relative to the background
 # - locked score and timer labels relative to the background
 
+#riley changelog
+# - ajusted barriers so all of them match the white lines on the feild
+
+
 # THIS IS CALLED WHEN THE GAME STARTS.
 func _ready() -> void:
 	timer = $since_last_touch
@@ -30,9 +34,11 @@ func _ready() -> void:
 func start():
 	# SET WORLD BORDERS
 	$Borders/TOP_BORDER.position = Vector2(0,0)
-	$Borders/LEFT_BORDER.position = Vector2(0,0)
-	$Borders/RIGHT_BORDER.position = screen_size
-	$Borders/BOTTOM_BORDER.position = screen_size
+	$Borders/top_left_border.position = Vector2(67,146)
+	$Borders/bottom_left_border.position = Vector2(67,502)
+	$Borders/top_right_border.position = Vector2(1086,137)
+	$Borders/bottom_right_border.position = Vector2(1086,511)
+	$Borders/BOTTOM_BORDER.position = Vector2(578,585)
 	
 	# SET SPRITE POSITIONS AND BALL VELOCITY.
 	$Player.position.y = screen_size.y / 2
