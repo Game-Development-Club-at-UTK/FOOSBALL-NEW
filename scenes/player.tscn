@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://ca5ol5tdqvnre"]
+[gd_scene load_steps=57 format=3 uid="uid://ca5ol5tdqvnre"]
 
 [ext_resource type="Script" uid="uid://do5ore0onoo0e" path="res://scripts/player.gd" id="1_ot1ew"]
 [ext_resource type="Script" uid="uid://cc41ksltbgyyh" path="res://scripts/game_base.gd" id="1_tuyoq"]
@@ -8,7 +8,8 @@
 [ext_resource type="Script" uid="uid://5nytyy38u6bw" path="res://scripts/player_goal.gd" id="4_dbiey"]
 [ext_resource type="Texture2D" uid="uid://p20mfrg04gh4" path="res://assets/player, blue.png" id="4_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://b5y030jmodp8a" path="res://assets/soccer ball rolling green.png" id="6_y4r1p"]
-[ext_resource type="Texture2D" uid="uid://ncqk4ho073p" path="res://assets/player, red.png" id="10_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://e75peiqjqwhe" path="res://assets/player, blue (1).png" id="7_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://dhf23rownw0u8" path="res://assets/player, red animation.png" id="9_3v2ag"]
 [ext_resource type="Script" uid="uid://dmmu6ip5rtnh5" path="res://scripts/label_2.gd" id="11_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://b4o5usym7dypc" path="res://assets/fosball bar from piskel.png" id="11_d2wvv"]
 
@@ -139,6 +140,73 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_31cv2"]
+atlas = ExtResource("7_3v2ag")
+region = Rect2(0, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf23h"]
+atlas = ExtResource("7_3v2ag")
+region = Rect2(96, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt7fs"]
+atlas = ExtResource("7_3v2ag")
+region = Rect2(0, 32, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqfne"]
+atlas = ExtResource("7_3v2ag")
+region = Rect2(96, 32, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnwbv"]
+atlas = ExtResource("7_3v2ag")
+region = Rect2(0, 64, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gl8cc"]
+atlas = ExtResource("7_3v2ag")
+region = Rect2(96, 64, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_487ah"]
+atlas = ExtResource("7_3v2ag")
+region = Rect2(0, 96, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md1ol"]
+atlas = ExtResource("7_3v2ag")
+region = Rect2(96, 96, 96, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bj30b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31cv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pf23h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt7fs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqfne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnwbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gl8cc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_487ah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md1ol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31cv2")
+}],
+"loop": false,
+"name": &"blue hit",
+"speed": 9.0
+}]
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o0vg0"]
 normal = Vector2(0, 1)
 distance = -8.99835
@@ -154,6 +222,70 @@ distance = 12.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xjx6j"]
 size = Vector2(34, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj30b"]
+atlas = ExtResource("9_3v2ag")
+region = Rect2(0, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc3p3"]
+atlas = ExtResource("9_3v2ag")
+region = Rect2(96, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hax0n"]
+atlas = ExtResource("9_3v2ag")
+region = Rect2(0, 32, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4otl"]
+atlas = ExtResource("9_3v2ag")
+region = Rect2(96, 32, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2b1d"]
+atlas = ExtResource("9_3v2ag")
+region = Rect2(0, 64, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cs1tg"]
+atlas = ExtResource("9_3v2ag")
+region = Rect2(96, 64, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dvfe"]
+atlas = ExtResource("9_3v2ag")
+region = Rect2(0, 96, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_giy8y"]
+atlas = ExtResource("9_3v2ag")
+region = Rect2(96, 96, 96, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fdfoy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bj30b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc3p3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hax0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4otl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2b1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs1tg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dvfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_giy8y")
+}],
+"loop": false,
+"name": &"red hit",
+"speed": 9.0
+}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y4r1p"]
 font_size = 100
@@ -199,13 +331,15 @@ collision_mask = 18
 script = ExtResource("1_ot1ew")
 metadata/timer_resetter = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-scale = Vector2(4, 4)
-texture = ExtResource("4_y4r1p")
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
 position = Vector2(-32, -32)
 polygon = PackedVector2Array(-1, -5, 34, -15, 69, -5, 69, 65, 34, 75, -1, 65)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(-7.6293945e-06, 1.9073486e-06)
+scale = Vector2(3.7083335, 3.875)
+sprite_frames = SubResource("SpriteFrames_bj30b")
+animation = &"blue hit"
 
 [node name="Borders" type="Node2D" parent="."]
 
@@ -295,13 +429,15 @@ collision_mask = 18
 script = ExtResource("3_fjrip")
 metadata/Timer_Resetter = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Opponent"]
-scale = Vector2(4, 4)
-texture = ExtResource("10_d2wvv")
-
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Opponent"]
 position = Vector2(-872, -32)
 polygon = PackedVector2Array(833, -3, 868, -13, 903, -3, 903, 67, 868, 77, 833, 67)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Opponent"]
+position = Vector2(6.9618225e-05, -2.000008)
+scale = Vector2(3.833333, 3.8749995)
+sprite_frames = SubResource("SpriteFrames_fdfoy")
+animation = &"red hit"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -328,7 +464,7 @@ metadata/_edit_use_anchors_ = true
 [node name="TextureRect" type="TextureRect" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.11320902
+anchor_left = -0.11320905
 anchor_top = -0.2481649
 anchor_right = -0.11320905
 anchor_bottom = -0.2481649
@@ -371,7 +507,7 @@ texture = ExtResource("11_d2wvv")
 
 [node name="bar sprite opponent" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(1002.0001, 354)
+position = Vector2(999.99994, 360)
 scale = Vector2(6.21875, 26.187502)
 texture = ExtResource("11_d2wvv")
 

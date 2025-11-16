@@ -89,3 +89,5 @@ func _on_enemy_goal_body_entered(body: Node2D) -> void:
 
 func _on_since_last_touch_timeout() -> void:
 	start() # Replace with function body.
+
+# i (riley) am gonna try to script the animation playing on button press
